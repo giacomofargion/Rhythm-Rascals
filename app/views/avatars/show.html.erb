@@ -1,0 +1,10 @@
+<!-- app/views/avatars/show.html.erb -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1><%= @avatar.name %></h1>
+      <%= image_tag @avatar.image_url, class: "img-fluid rounded-circle avatar-image", alt: @avatar.name %>
+      <p><%= @avatar.description %></p>
+    </div>
+  </div>
+</div>

@@ -14,10 +14,10 @@
       <div class="row">
         <!-- Loop through placeholder images; adjust for dynamic content as necessary -->
         <% 12.times do |i| %>
-          <div class="col-6 col-md-4 mb-3"> <!-- Adjust column size for smaller images -->
-            <a href="#">
-              <img src="https://via.placeholder.com/100" class="img-fluid rounded-circle" alt="Placeholder Image">
-            </a>
+          <div class="col-6 col-md-4 mb-3 d-flex flex-column align-items-center avatar-container">
+            <%= link_to avatar_path(i+1) do %>
+              <%= image_tag "huluhooloi.svg", class: "img-fluid rounded-circle avatar-image", alt: "Avatar Image" %>
+            <% end %>
             <h5 class="text-center mt-2">Avatar <%= i+1 %></h5>
           </div>
           <% if i == 5 %>
