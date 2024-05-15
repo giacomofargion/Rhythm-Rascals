@@ -1,0 +1,15 @@
+.avatars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: calc(25% - 10px); // Calculate the width for each avatar
+  margin-bottom: 20px; // Add spacing between rows
+  img {
+    border-radius: 50%; // Make the image circular
+    width: 70%; // Make the image fill the container
+    height: auto; // Maintain aspect ratio
+  }
+}
