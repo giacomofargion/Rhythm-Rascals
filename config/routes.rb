@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :avatars
-  # get "/assets/audio/:audio1.mp3" => "audio#show"
+  resources :avatars, only: [:show]
+
 end
