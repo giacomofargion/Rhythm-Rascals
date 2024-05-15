@@ -1,8 +1,11 @@
-<h1>hello</h1>
 
+<div class="avatars" data-controller="audio">
+    <% 2.times do |i| %>
+      <div data-target="audioAvatar" class="avatar">
+        <img src="/assets/image<%= i + 1 %>.jpg" alt="Avatar" data-action="click->audio#play<%= i + 1 %>">
+      </div>
+    <% end %>
 
-<div data-controller="audio">
-
-  <button data-action="click->audio#play">Click Me</button>
+    <button data-action="click->audio#startTransport">Start</button>
 
 </div>

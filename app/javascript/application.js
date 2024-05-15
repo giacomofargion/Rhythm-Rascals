@@ -4,3 +4,4 @@ import "controllers"
 import "@popperjs/core"
 import "bootstrap"
 import * as Tone from "tone";
+import {Howl, Howler} from 'howler';

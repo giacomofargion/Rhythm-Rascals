@@ -1,17 +1,30 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
+import {Howl, Howler} from 'howler';
 
-// Connects to data-controller="audio"
 export default class extends Controller {
-  async play() {
-    await Tone.start();
-    console.log("Audio is playing");
-    // Add your Tone.js code to play audio here
-    // For example:
-    const player = new Tone.Player(
-      "http://localhost:3000/audio/beat.wav"
-    ).toDestination();
-    Tone.loaded().then(() => {
-      player.start();
+static targets = ["audioAvatar"]
+
+startTransport() {
+  this.play1()
+  this.play2()
+}
+
+
+  play1() {
+    const sounds = new Howl({
+      src: '/assets/audio1.mp3',
+      loop: true,
+      volume: 0,
     });
+    sounds.play();
+  }
+
+  play2() {
+    const sounds = new Howl({
+      src: '/assets/audio2.mp3',
+      loop: true,
+      volume: 0,
+    });
+    sounds.play();
   }
 }
