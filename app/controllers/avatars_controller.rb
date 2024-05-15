@@ -1,5 +1,5 @@
 class AvatarsController < ApplicationController
   def show
-    @avatars = Avatar.all # This fetches all avatars if you have an Avatar model
+    @avatar = Avatar.find(params[:id])
   end
 end
