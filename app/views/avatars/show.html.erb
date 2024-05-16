@@ -1,11 +1,18 @@
+<% sounds = @avatar.sounds.map { |sound| url_for(sound.file_path)} %>
+<div data-controller="audio" data-audio-urls-value="<%= sounds.to_json%>">
+
+
 <div class="container">
-  <div class="row" data-controller="audio">
-    <button data-action="click->audio#startTransport">Start</button>
-    <h1><%= @avatar.name %></h1>
-    <p><%= @avatar.description %></p>
-    <% 16.times do |i| %>
-      <div class="col-md-3 text-center">
-        <%= image_tag @avatar.image_url, { class: "img-fluid rounded-circle avatar-image", alt: @avatar.name, data: { action: "click->audio#play#{i + 1}", audio_file: "audio_file_#{i + 1}.mp3" } } %>
+  <div class="row">
+    <button data-action="click->audio#playAll">Start</button>
+    <% sounds = @avatar.sounds %>
+    <% sounds.each_with_index do |sound, index| %>
+      <div class="col-md-3">
+        <p><%= sound.type_of_sound %></p>
+        <button data-index="<%= index%>" data-action="click->audio#unmute">
+          <%= image_tag @avatar.image_url, class: "img-fluid rounded-circle avatar-image" %>
+        </button>
       </div>
     <% end %>
-
+  </div>
+</div>
