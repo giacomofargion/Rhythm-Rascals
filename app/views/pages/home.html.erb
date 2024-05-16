@@ -12,17 +12,16 @@
     <!-- Avatars Column -->
     <div class="col-md-6">
       <div class="row">
-        <!-- Loop through placeholder images; adjust for dynamic content as necessary -->
-        <% 12.times do |i| %>
+        <% @avatars.each_with_index do |avatar, index| %>
           <div class="col-6 col-md-4 mb-3 d-flex flex-column align-items-center avatar-container">
-            <%= link_to avatar_path(i+1) do %>
-              <%= image_tag "huluhooloi.svg", class: "img-fluid rounded-circle avatar-image", alt: "Avatar Image" %>
+            <%= link_to avatar_path(avatar) do %>
+              <%= image_tag avatar.image_url, class: "img-fluid rounded-circle avatar-image", alt: avatar.name %>
             <% end %>
-            <h5 class="text-center mt-2">Avatar <%= i+1 %></h5>
+            <h5 class="text-center mt-2"><%= avatar.name %></h5>
           </div>
-          <% if i == 5 %>
+          <% if (index + 1) % 6 == 0 %>
             </div>
-            <div class="row"> <!-- Start a new row after the first 6 images -->
+            <div class="row"> <!-- Start a new row after every 6 avatars -->
           <% end %>
         <% end %>
       </div>
