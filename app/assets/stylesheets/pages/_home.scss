@@ -1,12 +1,134 @@
-// Specific CSS for your home-page
+// app/assets/stylesheets/home_page.scss
+
+/* app/assets/stylesheets/home_page.scss or _footer.scss */
+
+/* app/assets/stylesheets/home_page.scss */
+
+/* app/assets/stylesheets/home_page.scss */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headers-font;
+}
+
+.rhythm-rascal-heading {
+  font-family: $special-font;
+  color: #4682f2;
+}
+
 .description-text {
   font-size: 1.2rem; // Increase font size
-  line-height: 2.6; // Increase line spacing
-  font-weight: 900; // Slightly heavier font
+  line-height: 1.6; // Adjust line spacing
+  font-weight: 400; // Slightly heavier font
   margin-bottom: 1.5rem; // Add spacing below the text
+  text-align: justify; // Align text
+  text-justify: inter-word; // Align text
+}
+
+.description-container {
+  padding: 20px;
+  background-color: #f7f7f7; // Background color to match the overall theme
+}
+
+.avatar-display-container {
+  padding: 20px;
+  background-color: #e0e0e0; // Enhanced background color for separation
+  border-radius: 10px; // Optional: Add rounded corners for a softer look
+  margin-top: 20px; // Add margin-top for space between the two divs
+}
+
+.avatar-container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  transition: background-color 0.3s; // Smooth transition for background color
 }
 
 .avatar-image {
-  width: 120px; // Slightly increase image size
+  width: 120px; // Initial image size
   height: 120px;
+  transition: transform 0.3s, box-shadow 0.3s; // Smooth transition for hover effects
+}
+
+.avatar-container:hover .avatar-image {
+  transform: scale(1.1); // Slightly increase the size
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); // Add box shadow on hover
+}
+
+.avatar-container h5 {
+  transition: color 0.3s; // Smooth transition for text color
+}
+
+.avatar-container:hover h5 {
+  color: #4682f2; // Change text color on hover
+}
+
+/* Footer styles */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.social-icons li {
+  list-style: none;
+}
+
+.social-icons li a {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 80px;
+  font-size: 35px;
+  margin: 0 10px;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #fff;
+  z-index: 1;
+}
+
+.social-icons li a .icon {
+  position: relative;
+  color: #262626;
+  transition: .5s;
+  z-index: 3;
+}
+
+.social-icons li a:hover .icon {
+  color: #fff;
+  transform: rotateY(360deg);
+}
+
+.social-icons li a:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f00;
+  transition: .5s;
+  z-index: 2;
+}
+
+.social-icons li a:hover:before {
+  top: 0;
+}
+
+.social-icons li:nth-child(1) a:before {
+  background: #3b5999;
+}
+
+.social-icons li:nth-child(2) a:before {
+  background: #55acee;
+}
+
+social-icons li:nth-child(3) a:before {
+  background: #0077b5;
+}
+
+social-icons li:nth-child(4) a:before {
+  background: #dd4b39;
 }
