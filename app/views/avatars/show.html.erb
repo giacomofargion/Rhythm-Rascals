@@ -1,23 +1,12 @@
-
-
-<div class="avatars" data-controller="audio">
-    <% 2.times do |i| %>
-      <div data-target="audioAvatar" class="avatar">
-        <img src="/assets/image<%= i + 1 %>.jpg" alt="Avatar" data-action="click->audio#play<%= i + 1 %>">
+<div class="container">
+  <div class="row" data-controller="audio">
+    <button data-action="click->audio#startTransport">Start</button>
+    <h1><%= @avatar.name %></h1>
+    <p><%= @avatar.description %></p>
+    <% 16.times do |i| %>
+      <div class="col-md-3 text-center">
+        <%= image_tag @avatar.image_url, { class: "img-fluid rounded-circle avatar-image", alt: @avatar.name, data: { action: "click->audio#play#{i + 1}", audio_file: "audio_file_#{i + 1}.mp3" } } %>
       </div>
     <% end %>
-
-    <button data-action="click->audio#startTransport">Start</button>
-
-
-<!-- app/views/avatars/show.html.erb -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <h1><%= @avatar.name %></h1>
-      <%= image_tag @avatar.image_url, class: "img-fluid rounded-circle avatar-image", alt: @avatar.name %>
-      <p><%= @avatar.description %></p>
-    </div>
   </div>
-
 </div>
