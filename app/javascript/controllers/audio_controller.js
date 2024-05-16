@@ -1,32 +1,32 @@
 import { Controller } from "@hotwired/stimulus";
 import {Howl, Howler} from 'howler';
 
+
+// Connects to data-controller="tone"
 export default class extends Controller {
-static targets = ["audioAvatar"]
-players = [];
 
-startTransport() {
-  this.play1()
-  this.play2()
-  console.log('hello');
-}
+    static values = {
+      urls: Array // Assume this comes as an array of URLs
+    }
 
-
-  play1() {
-    const sounds = new Howl({
-      src: '/assets/audio1.mp3',
-      loop: true,
+  connect() {
+    console.log("hello")
+    this.sounds = this.urlsValue.map(url => new Howl({
+      src: [url],
       volume: 1,
-    });
-    sounds.play();
+      loop: true,
+      mute: true
+    }));
   }
 
-  play2() {
-    const sounds = new Howl({
-      src: '/assets/audio2.mp3',
-      loop: true,
-      volume: 1,
-    });
-    sounds.play();
+    playAll() {
+      this.sounds.forEach((sound) => sound.play());
+    }
+
+    unmute(event) {
+      const index = event.currentTarget.dataset.index;
+      console.log(index)
+      const sound = this.sounds[index];
+      sound.mute(!sound.mute());
+    }
   }
-}
