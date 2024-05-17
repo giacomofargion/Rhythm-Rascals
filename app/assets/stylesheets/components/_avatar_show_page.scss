@@ -1,15 +1,46 @@
+// Partial SCSS for Avatars Show Page
 .avatars {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.avatar {
+.avatar-container {
   width: calc(25% - 10px); // Calculate the width for each avatar
   margin-bottom: 20px; // Add spacing between rows
-  img {
-    border-radius: 50%; // Make the image circular
-    width: 70%; // Make the image fill the container
-    height: auto; // Maintain aspect ratio
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-container img {
+  border-radius: 50%; // Make the image circular
+  width: 70%; // Make the image fill the container
+  height: auto; // Maintain aspect ratio
+  background: none; // Remove white background
+  border: none;
+  transition: transform 0.3s; // Smooth transition for hover effect
+}
+
+// Jump animation
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
   }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+// Applying jump animation
+.jump {
+  animation: jump 0.5s infinite;
+}
+
+// Button styling
+.custom-large-btn {
+  padding: 10px 20px; /* Adjust padding as needed for a larger button */
+  font-size: 1.25rem; /* Adjust font size as needed */
+  border-radius: 50px; /* Makes the button round */
+  background-color: #4e0652;
 }
