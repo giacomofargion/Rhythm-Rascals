@@ -4,13 +4,15 @@ import { Howl, Howler } from 'howler';
 // Connects to data-controller="audio"
 export default class extends Controller {
   static values = {
-    urls: Array // Assume this comes as an array of URLs
+    urls: Array, // Assume this comes as an array of URLs
+    correct: String
   }
 
   static targets = ["avatar", "button"]
 
   connect() {
     console.log("hello");
+    console.log(this.correctValue);
     this.sounds = this.urlsValue.map(url => new Howl({
       src: [url],
       volume: 1,

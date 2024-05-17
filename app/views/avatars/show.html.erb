@@ -1,5 +1,5 @@
 <% sounds = @avatar.sounds.map { |sound| url_for(sound.file_path) } %>
-<div data-controller="audio" data-audio-urls-value="<%= sounds.to_json %>">
+<div data-controller="audio" data-audio-urls-value="<%= sounds.to_json %>" data-audio-correct-value="<%= @avatar.correct_sounds.to_json%>">
   <div class="container p-3 my-3" style="background-color: #f5b664;" data-controller="appearance">
     <div class="row justify-content-center align-items-center text-center">
       <div class="col-12 mb-3">
