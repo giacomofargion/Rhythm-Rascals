@@ -33,17 +33,21 @@ h5{
   text-align: justify; // Align text
   text-justify: inter-word; // Align text
 }
-
 .description-container {
   padding: 20px;
   background-color: #f7f7f7; // Background color to match the overall theme
 }
 
 .avatar-display-container {
-  padding: 20px;
+  padding: 10px;
   background-color: #e0e0e0; // Enhanced background color for separation
   border-radius: 10px; // Optional: Add rounded corners for a softer look
-  margin-top: 20px; // Add margin-top for space between the two divs
+  margin-top: 40px; // Add margin-top for space between the two divs
+  transition: background-color 0.3s
+}
+
+.avatar-display-container:hover {
+  background-color: #f3ecec; // New background color on hover
 }
 
 .avatar-container {
@@ -84,12 +88,12 @@ h5{
 }
 
 .social-icons li a {
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   background-color: #fff;
   text-align: center;
-  line-height: 80px;
-  font-size: 35px;
+  line-height: 50px;
+  font-size: 25px;
   margin: 0 10px;
   display: block;
   border-radius: 50%;
