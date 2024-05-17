@@ -29,10 +29,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .avatar-display-container {
-  padding: 20px;
+  padding: 10px;
   background-color: #e0e0e0; // Enhanced background color for separation
   border-radius: 10px; // Optional: Add rounded corners for a softer look
-  margin-top: 20px; // Add margin-top for space between the two divs
+  margin-top: 40px; // Add margin-top for space between the two divs
+  transition: background-color 0.3s
+}
+
+.avatar-display-container:hover {
+  background-color: #f3ecec; // New background color on hover
 }
 
 .avatar-container {
