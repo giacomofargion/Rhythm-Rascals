@@ -1,5 +1,5 @@
 <!-- app/views/avatars/show.html.erb -->
-<div class="container p-3 my-3" style="background-color: #f7f7f7;" data-controller="appearance">
+<div class="container p-2 my-2" style="background-color: #f7f7f7;" data-controller="appearance">
   <div class="row">
     <!-- Description Column -->
     <div class="col-md-6 description-container mb-3 mb-md-0">
@@ -9,6 +9,7 @@
         Pick Your Playful Pal! Select from our lineup of lively avatars. Maybe you'll choose Drummer Duck, who loves a good beat, or Guitar Gator, who strums faster than you can blink! Each pal has a special musical talent just like you. 🎺🐊
         Choose your buddy, and let’s dive into tunes and giggles as we explore the world of rhythm and melody together! So, what are you waiting for? Let's make some musical mischief with your new friends here at Rhythm Rascals! 🎉🎵
       </p>
+      <a href="#" data-action="click->appearance#showPopup" data-appearance-target="howToPlayLink" id="how-to-play-link">How to Play</a>
     </div>
     <!-- Avatars Column -->
     <div class="col-md-6 avatar-display-container">
@@ -16,7 +17,8 @@
         <% @avatars.each_with_index do |avatar, index| %>
           <div class="col-6 col-md-4 mb-3 d-flex flex-column align-items-center avatar-container">
             <%= link_to avatar_path(avatar) do %>
-              <%= image_tag avatar.image_url, class: "img-fluid rounded-circle avatar-image", alt: avatar.name, data: { appearance_target: "avatarImage" }, style: "opacity: 0;" %>
+              <%= image_tag avatar.image_url, class: "img-fluid rounded-circle avatar-image", alt: avatar.name,
+              data: { appearance_target: "avatarImage" }, style: "opacity: 0;" %>
             <% end %>
             <h5 class="text-center mt-2" data-appearance-target="avatarDescription" style="opacity: 0;"><%= avatar.name %></h5>
           </div>
@@ -27,5 +29,16 @@
         <% end %>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- How to Play Popup -->
+<div id="how-to-play-popup" class="how-to-play-popup">
+  <div class="how-to-play-content">
+    <span class="how-to-play-close" data-action="click->appearance#hidePopup">&times;</span>
+    <h2>How to Play</h2>
+    <p>Gameplay
+Listening Strategy: <br> <br> Listen carefully to the sounds of Bass, Drums, Melody, and Harmony. Each element has a unique sound. <br> <br> Find the Right Combination: Click on the icons to play the sound of each musical element. Experiment with different combinations to find the correct one. Remember, there's only one right combination! <br> <br> Muting Sounds: Click on an icon again to mute the sound if you want to focus on other elements. You can toggle the sound on and off by clicking the icon repeatedly. <br> <br> Winning the Game: Once you believe you've found the correct combination of musical elements, submit your solution. If you're correct, you win the game and unlock the next level! <br> <br> Are you ready to challenge your ears and become a musical puzzle master? Your avatars are now!
+</p>
   </div>
 </div>

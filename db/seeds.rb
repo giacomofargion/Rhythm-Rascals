@@ -29,6 +29,7 @@ avatars = Avatar.create!([
 
 puts "Created #{avatars.size} avatars."
 
+# Drummer Ben
 #correct_sounds
 sound1 = Sound.create(file_path: "../../assets/Bass-right.mp3", avatar_id: avatars[0].id, type_of_sound: "Bass")
 sound2 = Sound.create(file_path: "../../assets/Beat-right.mp3", avatar_id: avatars[0].id, type_of_sound: "Beat")
@@ -50,3 +51,12 @@ sound13 = Sound.create(file_path: "../../assets/Bass-wrong3.mp3", avatar_id: ava
 sound14 = Sound.create(file_path: "../../assets/Beat-wrong3.mp3", avatar_id: avatars[0].id, type_of_sound: "Beat")
 sound15 = Sound.create(file_path: "../../assets/Chord-wrong3.mp3", avatar_id: avatars[0].id, type_of_sound: "Harmony")
 sound16 = Sound.create(file_path: "../../assets/Guitar-wrong3.mp3", avatar_id: avatars[0].id, type_of_sound: "Melody")
+
+# Miss Guitar Cone
+#correct_sounds
+sound1 = Sound.create(file_path: "../../assets/Bass-right.mp3", avatar_id: avatars[1].id, type_of_sound: "Bass")
+sound2 = Sound.create(file_path: "../../assets/Beat-right.mp3", avatar_id: avatars[1].id, type_of_sound: "Beat")
+sound3 = Sound.create(file_path: "../../assets/Chord-right.mp3", avatar_id: avatars[1].id, type_of_sound: "Harmony")
+sound4 = Sound.create(file_path: "../../assets/Guitar-right.mp3", avatar_id: avatars[1].id, type_of_sound: "Melody")
+
+puts "MGC Sounds created"
