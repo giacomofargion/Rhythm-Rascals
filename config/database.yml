@@ -78,7 +78,4 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: rhythm_rascals_production
-  username: rhythm_rascals
-  password: <%= ENV["RHYTHM_RASCALS_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
