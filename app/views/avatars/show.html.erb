@@ -1,21 +1,19 @@
-<% sounds = @avatar.sounds.map { |sound| url_for(sound.file_path)} %>
-<div data-controller="audio" data-audio-urls-value="<%= sounds.to_json%>">
-
-
-<div class="container">
-  <div class="row">
-    <button data-action="click->audio#playAll">Start</button>
-    <% sounds = @avatar.sounds %>
-    <% sounds.each_with_index do |sound, index| %>
-      <div class="col-md-3">
-        <p><%= sound.type_of_sound %></p>
-        <button data-index="<%= index%>" data-action="click->audio#unmute">
-          <%= image_tag @avatar.image_url, class: "img-fluid rounded-circle avatar-image" %>
-        </button>
+<% sounds = @avatar.sounds.map { |sound| url_for(sound.file_path) } %>
+<div data-controller="audio" data-audio-urls-value="<%= sounds.to_json %>">
+  <div class="container p-3 my-3" style="background-color: #f5b664;" data-controller="appearance">
+    <div class="row justify-content-center align-items-center text-center">
+      <div class="col-12 mb-3">
+        <button data-action="click->audio#playAll" data-audio-target="button" class="btn btn-primary custom-large-btn">Start</button>
       </div>
-    <% end %>
-
+      <% sounds = @avatar.sounds %>
+      <% sounds.each_with_index do |sound, index| %>
+        <div class="col-md-3 avatar-container mb-3">
+          <p><%= sound.type_of_sound %></p>
+          <button data-index="<%= index %>" data-action="click->audio#unmute" class="btn-no-background">
+            <%= image_tag @avatar.image_url, class: "img-fluid avatar avatar-image", data: { target: "audio.avatar" } %>
+          </button>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
