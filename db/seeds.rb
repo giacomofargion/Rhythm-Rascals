@@ -35,7 +35,7 @@ sound2 = Sound.create(file_path: "../../assets/Beat-right.mp3", avatar_id: avata
 sound3 = Sound.create(file_path: "../../assets/Chord-right.mp3", avatar_id: avatars[0].id, type_of_sound: "Harmony")
 sound4 = Sound.create(file_path: "../../assets/Guitar-right.mp3", avatar_id: avatars[0].id, type_of_sound: "Melody")
 
-avatars[0].correct_sounds = "#{sound1.id}, #{sound2.id}, #{sound3.id}, #{sound4.id}"
+avatars[0].update(correct: "#{sound1.id}, #{sound2.id}, #{sound3.id}, #{sound4.id}")
 
 #WRONG SOUNDS
 sound5 = Sound.create(file_path: "../../assets/Bass-wrong1.mp3", avatar_id: avatars[0].id, type_of_sound: "Bass")
