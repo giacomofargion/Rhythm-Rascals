@@ -20,11 +20,11 @@ ActiveRecord::Base.connection.reset_pk_sequence!('avatars')
 
 # Step 3: Repopulate the database with new records
 avatars = Avatar.create!([
-  { name: 'Drummer Ben', image_url: 'HooloHooloi-normal.jpeg', description: 'Loves a good beat.' },
-  { name: 'Miss Guitar Cone', image_url: 'HooloHooloi-normal.jpeg', description: 'Strums faster than you can blink.' },
-  { name: 'Blob with Many Eyes', image_url: 'HooloHooloi-normal.jpeg', description: 'Sees everything, misses nothing.' },
-  { name: 'Mr. Apple with Mustache', image_url: 'HooloHooloi-normal.jpeg', description: 'The most dapper fruit in the basket.' },
-  { name: 'GuGu Berry', image_url: 'HooloHooloi-normal.jpeg', description: 'The Master Blaster.' }
+  { name: 'Drummer Ben', image_url: 'huluhooloi.jpg', description: 'Loves a good beat.' },
+  { name: 'Miss Guitar Cone', image_url: 'ms_cone.jpg', description: 'Strums faster than you can blink.' },
+  { name: 'Blob with Many Eyes', image_url: 'blob.jpg', description: 'Sees everything, misses nothing.' },
+  { name: 'Mr. Apple with Mustache', image_url: 'appleman.jpg', description: 'The most dapper fruit in the basket.' },
+  { name: 'GuGu Berry', image_url: 'berry.jpg', description: 'The Master Blaster.' }
 ])
 
 puts "Created #{avatars.size} avatars."

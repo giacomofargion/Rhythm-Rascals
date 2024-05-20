@@ -19,6 +19,7 @@
             <%= link_to avatar_path(avatar) do %>
               <%= image_tag avatar.image_url, class: "img-fluid rounded-circle avatar-image", alt: avatar.name,
               data: { appearance_target: "avatarImage" }, style: "opacity: 0;" %>
+
             <% end %>
             <h5 class="text-center mt-2" data-appearance-target="avatarDescription" style="opacity: 0; color:#02756b;"><%= avatar.name %></h5>
           </div>
