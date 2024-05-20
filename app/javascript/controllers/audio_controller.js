@@ -5,7 +5,8 @@ import { Howl, Howler } from 'howler';
 export default class extends Controller {
   static values = {
     urls: Array, // Assume this comes as an array of URLs
-    correct: String
+    correct: String,
+    id: String
   }
 
   static targets = ["avatar", "button"]
@@ -20,6 +21,7 @@ export default class extends Controller {
       mute: true
     }));
     this.isPlaying = false; // Track whether the sounds are playing
+    this.selections = [];
   }
 
   playAll() {
@@ -27,6 +29,7 @@ export default class extends Controller {
       this.stopAll();
     } else {
       this.sounds.forEach((sound) => sound.play());
+
       this.startJumping();
       this.buttonTarget.textContent = "Stop";
     }
@@ -40,10 +43,37 @@ export default class extends Controller {
   }
 
   unmute(event) {
+    // unmute the sound
     const index = event.currentTarget.dataset.index;
-    console.log(index);
     const sound = this.sounds[index];
     sound.mute(!sound.mute());
+
+    // get the sounds id
+    const soundId = event.currentTarget.dataset.soundId;
+    // either add or remove the sound id from the selection
+    if (this.selections.includes(soundId)) {
+      // removing from selection
+      const selectionIndex = this.selections.indexOf(soundId);
+      this.selections.splice(selectionIndex, 1)
+    } else {
+      // adding to selection
+      this.selections.push(soundId);
+    }
+
+    // get the correct sounds
+    const correctSounds = this.correctValue.split(', ');
+
+    const selectionCorrect = correctSounds.includes(soundId);
+    if (selectionCorrect) {
+      // show a  correct message
+    } else {
+      // show a wrong mesage
+    }
+
+    if (this.selections.length === 4 && correctSounds.every((sound) => this.selections.includes(sound))) {
+      // show winnign message
+      alert('you win!')
+    }
 
   }
 
