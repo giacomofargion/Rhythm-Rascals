@@ -44,7 +44,7 @@ export default class extends Controller {
     this.buttonTarget.textContent = "Start";
   }
 
-  unmute(event) {
+  async unmute(event) {
     // get the sound id
     const soundId = event.currentTarget.dataset.soundId;
     // get the sound type
@@ -128,9 +128,16 @@ export default class extends Controller {
     // check if our selected sound is included in that 'correct' sounds
     const selectionCorrect = correctSounds.includes(soundId);
 
+    // check if we have 4 selections, and if they are all in the correct sounds (WIN)
+    if (this.selections.length === 4 && correctSounds.every(sound => this.selections.includes(sound))) {
+      // show winning message
+      alert('You win!');
+      return; // Exit early to avoid showing the "Correct selection" message
+    }
+
     // process one of two messages based on whether our selection is 'correct'
     if (selectionCorrect) {
-      Swal.fire({
+      await Swal.fire({
         title: "Correct selection!",
         text: "You have selected the correct sound.",
         icon: "success",
@@ -146,7 +153,7 @@ export default class extends Controller {
         `
       });
     } else {
-      Swal.fire({
+      await Swal.fire({
         title: "Wrong selection!",
         text: "You have selected the wrong sound.",
         icon: "error",
@@ -162,14 +169,7 @@ export default class extends Controller {
         `
       });
     }
-
-    // check if we have 4 selections, and if they are all in the correct sounds (WIN)
-    if (this.selections.length === 4 && correctSounds.every(sound => this.selections.includes(sound))) {
-      // show winning message
-      alert('You win!');
-    }
   }
-
 
   startJumping() { // start jumping
     this.avatarTargets.forEach(avatar => {
