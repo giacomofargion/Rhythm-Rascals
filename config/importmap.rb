@@ -9,3 +9,4 @@ pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
 pin "tone" # @14.9.17
 pin "howler" # @2.2.4
+pin "sweetalert2" # @11.11.0
