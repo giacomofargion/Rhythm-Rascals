@@ -10,13 +10,13 @@
         <div class="col-md-3 avatar-container mb-3">
           <div class="sound-icon-container">
             <% if sound.type_of_sound == "Beat" %>
-              <img src="/assets/drum.png" alt="Drums" class="sound-icon">
+              <img src="/assets/drum.jpg" alt="Drums" class="sound-icon">
             <% elsif sound.type_of_sound == "Harmony" %>
               <img src="/assets/grand-piano.png" alt="Piano" class="sound-icon">
             <% elsif sound.type_of_sound == "Melody" %>
               <img src="/assets/guitar.png" alt="Guitar" class="sound-icon">
               <% elsif sound.type_of_sound == "Bass" %>
-              <img src="/assets/bass-clef.jpg" alt="Bass" class="sound-icon">
+              <img src="/assets/bass-clef.png" alt="Bass" class="sound-icon">
             <% end %>
           </div>
           <button data-index="<%= index %>" data-sound-type="<%= sound.type_of_sound %>" data-sound-id="<%= sound.id %>" data-action="click->audio#unmute" class="btn-no-background">
