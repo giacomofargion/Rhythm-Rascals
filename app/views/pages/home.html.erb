@@ -1,12 +1,12 @@
 
-<div class="container p-3 my-3" style="background-color: #f5b664;" data-controller="appearance">
+<div class="container p-3" style="background-color: #f5b664;" data-controller="appearance">
   <div class="row">
     <!-- Description Column -->
-    <div class="col-md-6 description-container mb-3 mb-md-0" style="border-radius: 20%; text-align:center; background-color:#f5b664">
+    <div class="col-md-6 description-container mb-1 mb-md-0" style="border-radius: 20%; text-align:center; background-color:#f5b664">
       <h1 class="rhythm-rascal-heading" data-appearance-target="title" style="opacity: 0;">Rhythm Rascals</h1>
       <p data-appearance-target="description" class="description-text" style="opacity: 0;">
         Hello, musical maestro! 🎩🎷 Are you ready to hop, bop, and drum up some fun? You’ve landed in the ultimate musical playground where every note spells adventure! Before we strike up the band, it's time to choose your partner in rhyme! 🥁🐵
-        Pick Your Playful Pal! Select from our lineup of lively avatars. Maybe you'll choose Drummer Duck, who loves a good beat, or Guitar Gator, who strums faster than you can blink! Each pal has a special musical talent just like you. 🎺🐊
+        Pick Your Playful Pal! Select from our lineup of lively avatars. Maybe you'll choose Drummer Ben, who loves a good beat, or Miss Guitar, who strums faster than you can blink! Each pal has a special musical talent just like you. 🎺🐊
         Choose your buddy, and let’s dive into tunes and giggles as we explore the world of rhythm and melody together! So, what are you waiting for? Let's make some musical mischief with your new friends here at Rhythm Rascals! 🎉🎵
       </p>
       <a href="#" data-action="click->appearance#showPopup" data-appearance-target="howToPlayLink" id="how-to-play-link">How to Play</a>
@@ -17,7 +17,7 @@
         <% @avatars.each_with_index do |avatar, index| %>
           <div class="col-6 col-md-4 mb-3 d-flex flex-column align-items-center avatar-container">
             <%= link_to avatar_path(avatar) do %>
-              <%= image_tag avatar.image_url, class: "img-fluid rounded-circle avatar-image", alt: avatar.name,
+              <%= image_tag avatar.image_url, alt: avatar.name,
               data: { appearance_target: "avatarImage" }, style: "opacity: 0;" %>
 
             <% end %>

@@ -59,7 +59,7 @@ export default class extends Controller {
           opacity: 4, // Fade in
           translateY: [-80, 0], // Bounce effect
           duration: 5000, // Animation duration
-          easing: 'easeOutElastic', // Easing function
+          // easing: 'easeOutElastic', // Easing function
           delay: index * 1500, // Delay between each avatar
           // complete: () => {
           //   // Trigger bounceAvatars when all avatars are done animating
