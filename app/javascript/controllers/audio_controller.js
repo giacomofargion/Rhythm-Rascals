@@ -45,10 +45,48 @@ export default class extends Controller {
   }
 
   unmute(event) {
-    // get the sounds id
+    // get the sound id
     const soundId = event.currentTarget.dataset.soundId;
-    // get the sounds type
+    // get the sound type
     const soundType = event.currentTarget.dataset.soundType;
+
+    // check if the user has already clicked this avatar
+    if (this.selections.includes(soundId)) {
+      // Toggle the mute state and selection state without showing SweetAlert
+      const index = event.currentTarget.dataset.index;
+      const sound = this.sounds[index];
+      sound.mute(!sound.mute());
+
+      // toggle active class
+      event.currentTarget.classList.toggle('active');
+
+      // remove or add soundId from selections
+      const selectionIndex = this.selections.indexOf(soundId);
+      if (selectionIndex !== -1) {
+        this.selections.splice(selectionIndex, 1);
+        // remove the sound type from activeTypes if it's no longer selected
+        const typeIndex = this.activeTypes.indexOf(soundType);
+        if (typeIndex !== -1) {
+          this.activeTypes.splice(typeIndex, 1);
+        }
+      } else {
+        this.selections.push(soundId);
+        // add the sound type to activeTypes if it's not already there
+        if (!this.activeTypes.includes(soundType)) {
+          this.activeTypes.push(soundType);
+        }
+      }
+
+      // split the correct sounds string into an array of ids
+      const correctSounds = this.correctValue.split(', ');
+
+      // check if we have 4 selections, and if they are all in the correct sounds (WIN)
+      if (this.selections.length === 4 && correctSounds.every(sound => this.selections.includes(sound))) {
+        alert('You win!');
+      }
+
+      return; // Exit early
+    }
 
     // check if there is already a sound with this type playing
     if (this.activeTypes.includes(soundType)) {
@@ -60,7 +98,7 @@ export default class extends Controller {
         // we then splice (remove) 1 item from the array at the given index we know our item to be at
         this.activeTypes.splice(typeIndex, 1);
       } else {
-        // if we havent it means we are trying to add another sound of the same type, nonono
+        // if we haven't it means we are trying to add another sound of the same type, nonono
         return;
       }
     } else {
@@ -68,12 +106,12 @@ export default class extends Controller {
       this.activeTypes.push(soundType);
     }
 
-    // either add or remove the sound id from the selection
+    // add or remove the sound id from the selection
     if (this.selections.includes(soundId)) {
       // removing from selection
       event.currentTarget.classList.remove('active');
       const selectionIndex = this.selections.indexOf(soundId);
-      this.selections.splice(selectionIndex, 1)
+      this.selections.splice(selectionIndex, 1);
     } else {
       // adding to selection
       event.currentTarget.classList.add('active');
@@ -126,13 +164,12 @@ export default class extends Controller {
     }
 
     // check if we have 4 selections, and if they are all in the correct sounds (WIN)
-
-    if (this.selections.length === 4 && correctSounds.every((sound) => this.selections.includes(sound))) {
-      // show winnign message
-      alert('you win!')
+    if (this.selections.length === 4 && correctSounds.every(sound => this.selections.includes(sound))) {
+      // show winning message
+      alert('You win!');
     }
-
   }
+
 
   startJumping() { // start jumping
     this.avatarTargets.forEach(avatar => {
