@@ -14,12 +14,16 @@
 }
 
 .avatar-container img {
-  border-radius: 50%; // Make the image circular
+  // border-radius: 50%; // Make the image circular
   width: 70%; // Make the image fill the container
   height: auto; // Maintain aspect ratio
   background: none; // Remove white background
   border: none;
   transition: transform 0.3s; // Smooth transition for hover effect
+}
+
+.avatar-container img.sound {
+  width: 30%;
 }
 
 // Jump animation
@@ -43,4 +47,17 @@
   font-size: 1.25rem; /* Adjust font size as needed */
   border-radius: 50px; /* Makes the button round */
   background-color: #4e0652;
+}
+
+
+.sound-icon-container {
+  text-align: center;
+  margin-bottom: 10px; // Space between icon and avatar
+}
+
+.sound-icon {
+  width: 50px !important; // Adjust size as needed
+  height:50px !important; // Adjust size as needed
+  display: block;
+  margin: 0 auto !important; // Center the icon
 }

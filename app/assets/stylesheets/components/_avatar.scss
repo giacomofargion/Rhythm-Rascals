@@ -1,8 +1,8 @@
 // Partial SCSS for Avatar
 .avatar {
   width: 40px;
-  border-radius: 50%;
-  background: none; // Remove white background
+  // border-radius: 50%;
+  // background: none; // Remove white background
   transition: transform 0.3s; // Smooth transition for hover effect
 }
 
@@ -42,4 +42,8 @@
 .btn-no-background {
   background: none;
   border: none;
+}
+
+.btn-no-background.active {
+  border: 2px solid green;
 }
