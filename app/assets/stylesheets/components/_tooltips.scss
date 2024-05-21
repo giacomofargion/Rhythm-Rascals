@@ -1,0 +1,80 @@
+$green: #78C55F;
+$red: #FF4C4C;
+
+.tooltip {
+  position: absolute;
+  padding: 5px 12px;
+  margin: 5px;
+  font-size: 15px;
+  border-radius: 100%;
+  color: #FFF;
+  white-space: nowrap;
+  z-index: 1000; // Ensure tooltip is above other elements
+}
+
+.tooltip.green {
+  background: $green;
+}
+
+.tooltip.red {
+  background: $red;
+}
+
+.tooltip:before,
+.tooltip:after {
+  position: absolute;
+  content: '';
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.tooltip.green:before {
+  border-width: 10px 8px 0 8px;
+  border-style: solid;
+  border-color: $green transparent transparent transparent;
+  top: -15px;
+  transform: translateY(20px);
+}
+
+.tooltip.red:before {
+  border-width: 10px 8px 0 8px;
+  border-style: solid;
+  border-color: $red transparent transparent transparent;
+  top: -15px;
+  transform: translateY(20px);
+}
+
+.tooltip.green:after {
+  content: attr(data-tooltip);
+  background: $green;
+}
+
+.tooltip.red:after {
+  content: attr(data-tooltip);
+  background: $red;
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(2deg);
+  }
+  50% {
+   transform: rotate(-3deg);
+  }
+  70% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+#anim:hover {
+  animation: shake 500ms ease-in-out forwards;
+}

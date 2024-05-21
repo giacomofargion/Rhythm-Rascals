@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import { Howl, Howler } from 'howler';
+import Swal from 'sweetalert2';
 
 // Connects to data-controller="audio"
 export default class extends Controller {
@@ -91,12 +92,41 @@ export default class extends Controller {
 
     // process one of two messages based on whether our selection is 'correct'
     if (selectionCorrect) {
-      // show a  correct message
+      Swal.fire({
+        title: "Correct selection!",
+        text: "You have selected the correct sound.",
+        icon: "success",
+        width: 300,
+        padding: "3em",
+        color: "#716add",
+        background: "#fff url(/images/trees.png)",
+        backdrop: `
+          rgba(0,0,123,0.4)
+          url("/images/nyan-cat.gif")
+          left top
+          no-repeat
+        `
+      });
     } else {
-      // show a wrong mesage
+      Swal.fire({
+        title: "Wrong selection!",
+        text: "You have selected the wrong sound.",
+        icon: "error",
+        width: 300,
+        padding: "3em",
+        color: "#716add",
+        background: "#fff url(/images/trees.png)",
+        backdrop: `
+          rgba(0,0,123,0.4)
+          url("/images/nyan-cat.gif")
+          left top
+          no-repeat
+        `
+      });
     }
 
     // check if we have 4 selections, and if they are all in the correct sounds (WIN)
+
     if (this.selections.length === 4 && correctSounds.every((sound) => this.selections.includes(sound))) {
       // show winnign message
       alert('you win!')
