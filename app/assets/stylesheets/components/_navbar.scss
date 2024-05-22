@@ -43,8 +43,10 @@
   font-size: 20px;
   color: black;
   padding: 0.5rem 1rem;
+  justify-content: space-between;
 }
 
 .nav-link:hover {
   color: #007bff;
+  font-weight: bold;
 }
