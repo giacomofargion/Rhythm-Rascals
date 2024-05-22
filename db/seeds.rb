@@ -8,10 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 # db/seeds.rb
 # db/seeds.rb
+require 'cloudinary'
 
 # Step 1: Delete all instances
 Sound.destroy_all
 Avatar.destroy_all
+
 
 
 # Step 2: Reset primary key sequence (for PostgreSQL)
@@ -30,7 +32,10 @@ avatars = Avatar.create!([
 puts "Created #{avatars.size} avatars."
 
 #correct_sounds
-sound1 = Sound.create(file_path: "../../assets/Bass-right.mp3", avatar_id: avatars[0].id, type_of_sound: "Bass")
+file = File.open("app/assets/audio/Bass-right.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound1 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Bass")
+
 sound2 = Sound.create(file_path: "../../assets/Beat-right.mp3", avatar_id: avatars[0].id, type_of_sound: "Beat")
 sound3 = Sound.create(file_path: "../../assets/Chord-right.mp3", avatar_id: avatars[0].id, type_of_sound: "Harmony")
 sound4 = Sound.create(file_path: "../../assets/Guitar-right.mp3", avatar_id: avatars[0].id, type_of_sound: "Melody")
