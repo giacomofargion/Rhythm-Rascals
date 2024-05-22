@@ -24,6 +24,7 @@ export default class extends Controller {
     this.isPlaying = false; // Track whether the sounds are playing
     this.selections = [];
     this.activeTypes = [];
+    // this.stopWin();
   }
 
   playAll() {
@@ -42,6 +43,14 @@ export default class extends Controller {
     this.sounds.forEach((sound) => sound.stop());
     this.stopJumping();
     this.buttonTarget.textContent = "Start";
+  }
+
+  stopWin() {
+    // window.location.reload();
+    this.sounds.forEach((sound) => sound.stop());
+    console.log(this.sounds);
+    // this.stopJumping();
+    // this.buttonTarget.textContent = "Start";
   }
 
   async unmute(event) {
@@ -130,44 +139,36 @@ export default class extends Controller {
 
     // check if we have 4 selections, and if they are all in the correct sounds (WIN)
     if (this.selections.length === 4 && correctSounds.every(sound => this.selections.includes(sound))) {
-      // show winning message
-      alert('You win!');
-      return; // Exit early to avoid showing the "Correct selection" message
-    }
-
-    // process one of two messages based on whether our selection is 'correct'
-    if (selectionCorrect) {
-      await Swal.fire({
-        title: "Correct selection!",
-        text: "You have selected the correct sound.",
-        icon: "success",
-        width: 300,
-        padding: "3em",
-        color: "#716add",
-        background: "#fff url(/images/trees.png)",
-        backdrop: `
-          rgba(0,0,123,0.4)
-          url("/images/nyan-cat.gif")
-          left top
-          no-repeat
-        `
-      });
-    } else {
-      await Swal.fire({
-        title: "Wrong selection!",
-        text: "You have selected the wrong sound.",
-        icon: "error",
-        width: 300,
-        padding: "3em",
-        color: "#716add",
-        background: "#fff url(/images/trees.png)",
-        backdrop: `
-          rgba(0,0,123,0.4)
-          url("/images/nyan-cat.gif")
-          left top
-          no-repeat
-        `
-      });
+      fetch("/avatars").then((resp) => resp.json()).then((data) => {
+        const avatarsHTML = data.avatars;
+        Swal.fire({
+          title: "You win!",
+          html: `
+          <div>
+            <p>Congratulations! You're a musical genius!</p>
+            <p>Check out these avatars:</p>
+            <div class="row">
+              ${avatarsHTML}
+            </div>
+          </div>`,
+          icon: "success",
+          width: 400,
+          padding: "3em",
+          color: "#fff",
+          background: "#8e44ad url(/images/nyan-cat.gif) no-repeat center top",
+          backdrop: `
+            rgba(0,0,123,0.4)
+            url("/images/confetti.gif")
+            left top
+            no-repeat
+          `,
+          showConfirmButton: false,
+          // timer: 5000,
+          timerProgressBar: true
+        });
+        return; // Exit early to avoid showing the "Correct selection" message
+      })
+      // this.stopWin();
     }
   }
 
