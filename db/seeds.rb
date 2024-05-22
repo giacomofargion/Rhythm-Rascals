@@ -121,7 +121,4 @@ file = File.open("app/assets/audio/Guitar-wrong3.mp3", 'rb')
 result = Cloudinary::Uploader.upload(file, resource_type: :video)
 sound16 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Melody")
 
-
-
-
 avatars[0].update(correct: "#{sound1.id}, #{sound2.id}, #{sound3.id}, #{sound4.id}")
