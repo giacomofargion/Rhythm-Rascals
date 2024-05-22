@@ -6,6 +6,24 @@
 
 /* app/assets/stylesheets/home_page.scss */
 
+:root {
+  --color-primary: hsl(310, 100%, 65%);
+  --color-secondary: hsl(160, 100%, 65%);
+  --background: hsl(230, 30%, 15%);
+  --text: hsl(310, 100%, 95%);
+  --color-1: #186cb8;
+  --color-2: #2a9a9f;
+  --color-3: #28a123;
+  --color-4: #e83611;
+  --color-5: #f9002f;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--background);
+  -webkit-text-fill-color: var(--background);
+}
+
 html, body{
   background-color: #f97093;
   height: 100%;
@@ -78,4 +96,62 @@ h5{
 
 .avatar-container:hover h5 {
   color: #4682f2; // Change text color on hover
+}
+
+.how-to-play-content{
+  display: grid;
+	background-color: hsl(230, 30%, 15%);
+	color: #274dff;
+}
+
+#popup-heading{
+  margin: auto;
+	letter-spacing: 0.0015em;
+	font-size: 5em;
+	text-shadow: 0 1px #8da1ff, -1px 0 #c0cbff, -1px 2px #8da1ff, -2px 1px #c0cbff,
+		-2px 3px #8da1ff, -3px 2px #c0cbff, -3px 4px #8da1ff, -4px 3px #c0cbff,
+		-4px 5px #8da1ff, -5px 4px #c0cbff, -5px 6px #8da1ff, -6px 5px #c0cbff,
+		-6px 7px #8da1ff, -7px 6px #c0cbff, -7px 8px #8da1ff, -8px 7px #c0cbff;
+	text-align: center;
+}
+
+#popup-text{
+
+  margin-left: 0;
+  padding: 1rem 0 1rem 2rem;
+  font-size: 2rem;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    35deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+}
+#how-to-play-link{
+font-family: "Exo", sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin: auto;
+  text-transform: uppercase;
+  background: linear-gradient(219deg,
+    var(--color-1) 19%,
+    transparent 19%,transparent 20%,
+    var(--color-2) 20%, var(--color-2)  39%,
+    transparent 39%,transparent 40%,
+    var(--color-3) 40%,var(--color-3) 59% ,
+    transparent 59%,transparent 60%,
+    var(--color-4) 60%, var(--color-4) 79%,
+    transparent 79%, transparent 80%,
+    var(--color-5) 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+#how-to-play-link:hover{
+  font-weight:900;
 }
