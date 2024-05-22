@@ -14,16 +14,7 @@
     <!-- Avatars Column -->
     <div class="col-md-6 avatar-display-container my-3" style= "background-color:#f5b664; border-radius: 20%;">
       <div class="row">
-        <% @avatars.each_with_index do |avatar, index| %>
-          <div class="col-6 col-md-4 mb-3 d-flex flex-column align-items-center avatar-container">
-            <%= link_to avatar_path(avatar) do %>
-              <%= image_tag avatar.image_url, alt: avatar.name,
-              data: { appearance_target: "avatarImage" }, style: "opacity: 0;" %>
-
-            <% end %>
-            <h5 class="text-center mt-2" data-appearance-target="avatarDescription" style="opacity: 0; color:#02756b;"><%= avatar.name %></h5>
-          </div>
-        <% end %>
+        <%= render partial: 'avatars/avatars', locals: {avatars: @avatars} %>
       </div>
     </div>
   </div>
