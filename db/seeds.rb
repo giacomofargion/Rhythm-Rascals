@@ -36,24 +36,92 @@ file = File.open("app/assets/audio/Bass-right.mp3", 'rb')
 result = Cloudinary::Uploader.upload(file, resource_type: :video)
 sound1 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Bass")
 
-sound2 = Sound.create(file_path: "../../assets/Beat-right.mp3", avatar_id: avatars[0].id, type_of_sound: "Beat")
-sound3 = Sound.create(file_path: "../../assets/Chord-right.mp3", avatar_id: avatars[0].id, type_of_sound: "Harmony")
-sound4 = Sound.create(file_path: "../../assets/Guitar-right.mp3", avatar_id: avatars[0].id, type_of_sound: "Melody")
 
-avatars[0].update(correct: "#{sound1.id}, #{sound2.id}, #{sound3.id}, #{sound4.id}")
+file = File.open("app/assets/audio/Beat-right.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound2 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Beat")
+
+
+
+file3 = File.open("app/assets/audio/Chord-right.mp3", 'rb')
+result3 = Cloudinary::Uploader.upload(file3, resource_type: :video)
+sound3 = Sound.create(file_path: result3['url'], avatar_id: avatars[0].id, type_of_sound: "Harmony")
+
+
+
+file = File.open("app/assets/audio/Guitar-right.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound4 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Melody")
+
+
 
 #WRONG SOUNDS
-sound5 = Sound.create(file_path: "../../assets/Bass-wrong1.mp3", avatar_id: avatars[0].id, type_of_sound: "Bass")
-sound6 = Sound.create(file_path: "../../assets/Beat-wrong1.mp3", avatar_id: avatars[0].id, type_of_sound: "Beat")
-sound7 = Sound.create(file_path: "../../assets/Chord-wrong1.mp3", avatar_id: avatars[0].id, type_of_sound: "Harmony")
-sound8 = Sound.create(file_path: "../../assets/Guitar-wrong1.mp3", avatar_id: avatars[0].id, type_of_sound: "Melody")
 
-sound9 = Sound.create(file_path: "../../assets/Bass-wrong2.mp3", avatar_id: avatars[0].id, type_of_sound: "Bass")
-sound10 = Sound.create(file_path: "../../assets/Beat-wrong2.mp3", avatar_id: avatars[0].id, type_of_sound: "Beat")
-sound11 = Sound.create(file_path: "../../assets/Chord-wrong2.mp3", avatar_id: avatars[0].id, type_of_sound: "Harmony")
-sound12 = Sound.create(file_path: "../../assets/Guitar-wrong2.mp3", avatar_id: avatars[0].id, type_of_sound: "Melody")
+file = File.open("app/assets/audio/Bass-wrong1.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound5 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Bass")
 
-sound13 = Sound.create(file_path: "../../assets/Bass-wrong3.mp3", avatar_id: avatars[0].id, type_of_sound: "Bass")
-sound14 = Sound.create(file_path: "../../assets/Beat-wrong3.mp3", avatar_id: avatars[0].id, type_of_sound: "Beat")
-sound15 = Sound.create(file_path: "../../assets/Chord-wrong3.mp3", avatar_id: avatars[0].id, type_of_sound: "Harmony")
-sound16 = Sound.create(file_path: "../../assets/Guitar-wrong3.mp3", avatar_id: avatars[0].id, type_of_sound: "Melody")
+
+
+file = File.open("app/assets/audio/Beat-wrong1.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound6 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Beat")
+
+
+
+file = File.open("app/assets/audio/Chord-wrong1.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound7 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Harmony")
+
+
+file = File.open("app/assets/audio/Guitar-wrong1.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound8 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Melody")
+
+
+file = File.open("app/assets/audio/Bass-wrong2.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound9 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Bass")
+
+
+file = File.open("app/assets/audio/Beat-wrong2.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound10 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Beat")
+
+
+file = File.open("app/assets/audio/Chord-wrong2.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound11 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Harmony")
+
+
+
+file = File.open("app/assets/audio/Guitar-wrong2.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound12 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Melody")
+
+
+file = File.open("app/assets/audio/Bass-wrong3.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound13 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Bass")
+
+
+
+file = File.open("app/assets/audio/Beat-wrong3.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound14 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Beat")
+
+
+
+file = File.open("app/assets/audio/Chord-wrong3.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound15 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Harmony")
+
+
+file = File.open("app/assets/audio/Guitar-wrong3.mp3", 'rb')
+result = Cloudinary::Uploader.upload(file, resource_type: :video)
+sound16 = Sound.create(file_path: result['url'], avatar_id: avatars[0].id, type_of_sound: "Melody")
+
+
+
+
+avatars[0].update(correct: "#{sound1.id}, #{sound2.id}, #{sound3.id}, #{sound4.id}")
