@@ -27,6 +27,10 @@ export default class extends Controller {
     // this.stopWin();
   }
 
+  disconnect() {
+    this.stopAll();
+  }
+
   playAll() {
     if (this.isPlaying) {
       this.stopAll();
