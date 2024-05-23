@@ -39,7 +39,7 @@ export default class extends Controller {
       this.stopAll();
     } else {
       for (let i = 0; i < this.sounds.length; i++) {
-        sounds[i].play()
+        this.sounds[i].play()
       }
 
       this.startJumping();
