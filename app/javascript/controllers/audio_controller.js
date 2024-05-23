@@ -153,7 +153,7 @@ export default class extends Controller {
         Swal.fire({
           title: "You win!",
           html: `
-          <div>
+          <div style="font-size: 20px; padding: 20px;">
             <p>Congratulations! You're a musical genius!</p>
             <p>Check out these avatars:</p>
             <div class="row">
@@ -161,7 +161,7 @@ export default class extends Controller {
             </div>
           </div>`,
           icon: "success",
-          width: 400,
+          width: 800,
           padding: "3em",
           color: "#fff",
           background: "#8e44ad url(/images/nyan-cat.gif) no-repeat center top",
