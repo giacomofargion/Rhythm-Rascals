@@ -1,32 +1,31 @@
-
-<div class="container p-3" style="background-color: #f5b664;" data-controller="appearance">
-  <div class="row">
-    <!-- Description Column -->
-    <div class="col-md-6 description-container mb-1 mb-md-0" style="border-radius: 20%; text-align:center; background-color:#f5b664">
-      <h1 class="rhythm-rascal-heading" data-appearance-target="title" style="opacity: 0;">Rhythm Rascals</h1>
-      <p data-appearance-target="description" class="description-text" style="opacity: 0;">
-        Hello, musical maestro! 🎩🎷 Are you ready to hop, bop, and drum up some fun? You’ve landed in the ultimate musical playground where every note spells adventure! Before we strike up the band, it's time to choose your partner in rhyme! 🥁🐵
-        Pick Your Playful Pal! Select from our lineup of lively avatars. Maybe you'll choose Drummer Ben, who loves a good beat, or Miss Guitar, who strums faster than you can blink! Each pal has a special musical talent just like you. 🎺🐊
-        Choose your buddy, and let’s dive into tunes and giggles as we explore the world of rhythm and melody together! So, what are you waiting for? Let's make some musical mischief with your new friends here at Rhythm Rascals! 🎉🎵
-      </p>
-      <a href="#" data-action="click->appearance#showPopup" data-appearance-target="howToPlayLink" id="how-to-play-link">How to Play</a>
-    </div>
-    <!-- Avatars Column -->
-    <div class="col-md-6 avatar-display-container my-3" style= "background-color:#f5b664; border-radius: 20%;">
-      <div class="row">
-        <%= render partial: 'avatars/avatars', locals: {avatars: @avatars} %>
+  <div class="container p-3" style="background-color: #f5b664;" data-controller="appearance">
+    <div class="row">
+      <!-- Description Column -->
+      <div class="col-md-6 description-container mb-1 mb-md-0" style="border-radius: 20%; text-align:center; background-color:#f5b664">
+        <h1 class="rhythm-rascal-heading" data-appearance-target="title" style="opacity: 0;">Rhythm Rascals</h1>
+        <p data-appearance-target="description" class="description-text" style="opacity: 0;">
+          Hello, musical maestro! 🎩🎷 Are you ready to hop, bop, and drum up some fun? You’ve landed in the ultimate musical playground where every note spells adventure! Before we strike up the band, it's time to choose your partner in rhyme! 🥁🐵
+          Pick Your Playful Pal! Select from our lineup of lively avatars. Maybe you'll choose Drummer Ben, who loves a good beat, or Miss Guitar, who strums faster than you can blink! Each pal has a special musical talent just like you. 🎺🐊
+          Choose your buddy, and let’s dive into tunes and giggles as we explore the world of rhythm and melody together! So, what are you waiting for? Let's make some musical mischief with your new friends here at Rhythm Rascals! 🎉🎵
+        </p>
+        <a href="#" data-action="click->appearance#showPopup" data-appearance-target="howToPlayLink" id="how-to-play-link">How to Play</a>
+      </div>
+      <!-- Avatars Column -->
+      <div class="col-md-6 avatar-display-container my-3" style= "background-color:#f5b664; border-radius: 20%;">
+        <div class="row">
+          <%= render partial: 'avatars/avatars', locals: {avatars: @avatars} %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- How to Play Popup -->
-<div id="how-to-play-popup" class="how-to-play-popup">
-  <div class="how-to-play-content">
-    <span class="how-to-play-close" data-action="click->appearance#hidePopup">&times;</span>
-    <h2 id="popup-heading">How to Play</h2>
-    <p id="popup-text">Gameplay
-Listening Strategy: <br> <br> Listen carefully to the sounds of Bass, Drums, Melody, and Harmony. Each element has a unique sound. <br> <br> Find the Right Combination: Click on the icons to play the sound of each musical element. Experiment with different combinations to find the correct one. Remember, there's only one right combination! <br> <br> Muting Sounds: Click on an icon again to mute the sound if you want to focus on other elements. You can toggle the sound on and off by clicking the icon repeatedly. <br> <br> Winning the Game: Once you believe you've found the correct combination of musical elements, submit your solution. If you're correct, you win the game and unlock the next level! <br> <br> Are you ready to challenge your ears and become a musical puzzle master? Your avatars are now!
-</p>
+  <!-- How to Play Popup -->
+  <div id="how-to-play-popup" class="how-to-play-popup">
+    <div class="how-to-play-content">
+      <span class="how-to-play-close" data-action="click->appearance#hidePopup">&times;</span>
+      <h2 id="popup-heading">How to Play</h2>
+      <p id="popup-text">Gameplay
+  Listening Strategy: <br> <br> Listen carefully to the sounds of Bass, Drums, Melody, and Harmony. Each element has a unique sound. <br> <br> Find the Right Combination: Click on the icons to play the sound of each musical element. Experiment with different combinations to find the correct one. Remember, there's only one right combination! <br> <br> Muting Sounds: Click on an icon again to mute the sound if you want to focus on other elements. You can toggle the sound on and off by clicking the icon repeatedly. <br> <br> Winning the Game: Once you believe you've found the correct combination of musical elements, submit your solution. If you're correct, you win the game and unlock the next level! <br> <br> Are you ready to challenge your ears and become a musical puzzle master? Your avatars are now!
+  </p>
+    </div>
   </div>
-</div>
