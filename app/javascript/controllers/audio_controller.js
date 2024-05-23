@@ -20,6 +20,7 @@ export default class extends Controller {
       volume: 1,
       loop: true,
       mute: true,
+      autoplay: false,
       // html5: true,
       // preload: true
     }));
@@ -37,7 +38,9 @@ export default class extends Controller {
     if (this.isPlaying) {
       this.stopAll();
     } else {
-      this.sounds.forEach((sound) => sound.play());
+      for (let i = 0; i < this.sounds.length; i++) {
+        sounds[i].play()
+      }
 
       this.startJumping();
       this.buttonTarget.textContent = "Stop";
