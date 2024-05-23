@@ -1,11 +1,11 @@
 <% avatars.each_with_index do |avatar, index| %>
-<% opacity = opacity ? "1" : "0"  %>
-  <div class="col-6 col-md-4 mb-3 d-flex flex-column align-items-center avatar-container" data-controller="audio" data-action="click->audio#stopWin" >
+  <% opacity = opacity ? "1" : "0" %>
+  <div class="col-6 col-md-4 mb-3 d-flex flex-column align-items-center avatar-container" data-controller="audio" data-action="click->audio#stopWin">
     <%= link_to avatar_path(avatar) do %>
-      <%= image_tag avatar.image_url, alt: avatar.name,
-      data: { appearance_target: "avatarImage" }, style: "opacity: #{opacity};" %>
-
+      <%= image_tag avatar.image_url, alt: avatar.name, data: { appearance_target: "avatarImage" }, style: "opacity: #{opacity};" %>
     <% end %>
-    <h5 class="text-center mt-2" data-appearance-target="avatarDescription" style="opacity: <%=opacity%>; color:#02756b;">
+    <h5 class="text-center mt-2" data-appearance-target="avatarDescription" style="opacity: <%= opacity %>; color: #02756b;">
+      <%= avatar.name %>
+    </h5>
   </div>
 <% end %>

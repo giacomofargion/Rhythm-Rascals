@@ -20,8 +20,8 @@ export default class extends Controller {
       volume: 1,
       loop: true,
       mute: true,
-      html5: true,
-      preload: true
+      // html5: true,
+      // preload: true
     }));
     this.isPlaying = false; // Track whether the sounds are playing
     this.selections = [];
