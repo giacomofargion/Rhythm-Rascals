@@ -22,7 +22,7 @@ export default class extends Controller {
       mute: true,
       autoplay: false,
       // html5: true,
-      // preload: true
+      preload: true
     }));
     this.isPlaying = false; // Track whether the sounds are playing
     this.selections = [];
