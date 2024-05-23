@@ -45,5 +45,31 @@
 }
 
 .btn-no-background.active {
-  border: 2px solid green;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 18px;
+  color: #333;
+  border: 2px dashed;
+  transition: border 0.5s ease;
+  /* Add the pulsing animation to the border */
+  animation: border-pulse 2s ease-in-out infinite;
+}
+/* When the box is hovered, change the border to a gradient and disable the pulsing animation */
+.btn-no-background.active:hover {
+  border-image: linear-gradient(to right, #f00, rgb(238, 0, 255), #00f);
+  border-image-slice: 1;
+  animation: none;
+}
+/* Define the pulsing animation */
+@keyframes border-pulse {
+  0% {
+     border-color: #f00;
+  }
+  50% {
+     border-color: #0f0;
+  }
+  100% {
+     border-color: #00f;
+  }
 }

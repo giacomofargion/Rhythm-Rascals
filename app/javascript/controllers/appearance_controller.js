@@ -9,6 +9,14 @@ export default class extends Controller {
 
   connect() {
     console.log("Controller connected");
+
+        // Check if 'delayedAppearance' and 'showDescription' have already been executed
+        if (!localStorage.getItem('delayedAppearanceExecuted')) {
+          this.delayedAppearance();
+          localStorage.setItem('delayedAppearanceExecuted', 'true');
+        }
+
+
     this.delayedAppearance();
     // Get the popup and link elements
     this.popup = document.getElementById("how-to-play-popup");
@@ -21,8 +29,10 @@ export default class extends Controller {
     this.closeButton.addEventListener("click", this.hidePopup.bind(this));
     window.addEventListener("click", this.handleOutsideClick.bind(this));
     // this.link.addEventListener("click", this.bounceAvatars.bind(this)); //
-    console.log("Event listener added to How to Play link");
+    // console.log("Event listener added to How to Play link");
   }
+
+
   delayedAppearance() {
     setTimeout(() => {
       this.titleTarget.style.transition = 'opacity 1s, font-weight 1s';
@@ -58,7 +68,7 @@ export default class extends Controller {
           targets: avatar,
           opacity: 4, // Fade in
           translateY: [-80, 0], // Bounce effect
-          duration: 5000, // Animation duration
+          duration: 4000, // Animation duration
           // easing: 'easeOutElastic', // Easing function
           delay: index * 1500, // Delay between each avatar
           // complete: () => {
