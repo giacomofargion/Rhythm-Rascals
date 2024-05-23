@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color:#f5b664;
+  background-color: #f5b664;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #ddd;
 }
@@ -29,13 +29,17 @@
   align-items: center;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
 .navbar-nav {
   display: flex !important;
   flex-direction: row !important;
 }
 
 .nav-item {
-  margin: 0 1rem; /* Space out the list items horizontally */
+  margin-left: 1rem; /* Space out the list items horizontally */
 }
 
 .nav-link {
